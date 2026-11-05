@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haichao Wang</title>
+<meta name="description" content="Haichao Wang, social anthropologist at UCL, researching ethical life in digital China and how AI safety is understood across cultures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Noto+Serif+SC:wght@500;700&display=swap">
+<style>
+/* Layout: a single reading column with a margin rail for labels, like an annotated field notebook; the hero glosses one bilingual term. */
+:root {
+  --paper: #f5f6f3;
+  --paper-2: #e9ece6;
+  --ink: #1a2321;
+  --ink-soft: #4d5a56;
+  --rule: #cdd3cc;
+  --jade: #2c6e62;
+  --jade-soft: #dce8e3;
+  --f-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Literata", Georgia, "Times New Roman", serif;
+  --f-han: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.1rem, 5vw, 3.2rem);
+  --step-han: clamp(5rem, 16vw, 9.5rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121816; --paper-2: #1a2220; --ink: #e4e9e5; --ink-soft: #a3b0ab;
+    --rule: #2e3a37; --jade: #7cc2b2; --jade-soft: #1f312d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121816; --paper-2: #1a2220; --ink: #e4e9e5; --ink-soft: #a3b0ab;
+  --rule: #2e3a37; --jade: #7cc2b2; --jade-soft: #1f312d; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: var(--step-0); line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+a { color: var(--jade); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 1040px; margin: 0 auto; }
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--paper); border-bottom: 1px solid var(--rule);
+}
+.top .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding-block: 14px; }
+.name { font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-family: var(--f-display); font-size: 0.95rem; }
+nav a { color: var(--ink-soft); text-decoration: none; }
+nav a:hover { color: var(--jade); }
+
+/* Hero */
+.hero .wrap {
+  display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 40px; align-items: end; padding-block: 64px 56px;
+}
+.eyebrow { font-family: var(--f-display); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--jade); margin: 0 0 18px; }
+.hero h1 { font-family: var(--f-display); font-weight: 600; font-size: var(--step-3); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 22px; text-wrap: balance; }
+.hero p.lede { font-size: var(--step-1); color: var(--ink-soft); max-width: 34em; margin: 0; }
+.gloss { border-left: 1px solid var(--rule); padding-left: 28px; }
+.gloss .han { font-family: var(--f-han); font-weight: 700; font-size: var(--step-han); line-height: 1; color: var(--ink); letter-spacing: 0.02em; }
+.gloss .pinyin { font-family: var(--f-display); font-size: 1rem; color: var(--jade); margin-top: 14px; letter-spacing: 0.04em; }
+.gloss .def { font-size: 0.95rem; color: var(--ink-soft); margin-top: 6px; max-width: 22em; }
+
+/* Sections with a margin rail */
+section.block { border-top: 1px solid var(--rule); }
+section.block .wrap {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding-block: 56px;
+}
+.rail h2 { font-family: var(--f-display); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin: 4px 0 0; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 72px); }
+.body { min-width: 0; max-width: 680px; }
+.body > p:first-child { margin-top: 0; }
+.body h3 { font-family: var(--f-display); font-size: var(--step-1); font-weight: 600; line-height: 1.3; margin: 0 0 6px; text-wrap: balance; }
+
+/* Research strands */
+.strands { display: grid; gap: 36px; }
+.strand { display: grid; gap: 4px; }
+.status { font-family: var(--f-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+.status.live { color: var(--jade); }
+.strand p { margin: 4px 0 0; }
+
+/* Feature (current writing) */
+.feature { background: var(--jade-soft); border-radius: 4px; padding: 24px 26px; margin-bottom: 40px; }
+.feature .status { color: var(--jade); }
+.feature h3 { margin-top: 6px; }
+.feature h3 .h { font-family: var(--f-han); font-weight: 700; }
+.feature p { margin: 8px 0 0; }
+
+/* Publication list */
+.pubs { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+.pubs li { display: grid; grid-template-columns: 3.4em minmax(0, 1fr); gap: 14px; }
+.yr { font-family: var(--f-display); font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 0.95rem; padding-top: 2px; }
+.pubs .t { font-style: normal; }
+.pubs .v { font-style: italic; color: var(--ink-soft); }
+.kind { display: block; font-family: var(--f-display); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--jade); margin-bottom: 2px; }
+.sub { font-family: var(--f-display); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 36px 0 16px; }
+.sub:first-child { margin-top: 0; }
+
+/* Two-column facts */
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; }
+.facts h3 { font-size: 1.05rem; }
+.facts p { margin: 4px 0 0; color: var(--ink-soft); font-size: 0.98rem; }
+.when { font-family: var(--f-display); font-size: 0.85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+/* Contact */
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 8px; }
+.mail code { font-family: var(--f-display); font-size: 1.15rem; color: var(--ink); background: var(--paper-2); padding: 6px 12px; border-radius: 3px; user-select: all; overflow-wrap: anywhere; }
+button.copy { font-family: var(--f-display); font-size: 0.9rem; font-weight: 600; background: transparent; color: var(--jade); border: 1px solid var(--jade); border-radius: 3px; padding: 6px 14px; cursor: pointer; }
+button.copy:hover { background: var(--jade-soft); }
+.skills { margin: 0; padding-left: 1.1em; display: grid; gap: 10px; }
+.skills li::marker { color: var(--jade); }
+.where { margin: 18px 0 0; color: var(--ink-soft); font-size: 0.98rem; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-family: var(--f-display); }
+
+footer { border-top: 1px solid var(--rule); }
+footer .wrap { padding-block: 28px 40px; font-family: var(--f-display); font-size: 0.85rem; color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 40px; gap: 32px; }
+  .gloss { border-left: 0; border-top: 1px solid var(--rule); padding: 24px 0 0; }
+  section.block .wrap { grid-template-columns: 1fr; gap: 14px; padding-block: 40px; }
+  .rail h2 { position: static; }
+  .facts { grid-template-columns: 1fr; }
+  .top { position: static; }
+}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#top">Haichao Wang</a>
+    <nav aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#methods">Methods</a>
+      <a href="#writing">Writing</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching &amp; practice</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Social anthropologist · University College London</p>
+        <h1>I study how ethical and safety concepts are interpreted in practice, across China and the West.</h1>
+        <p class="lede">My research follows how people in digital China form, justify and contest moral judgements. I now bring these methods to AI safety: how “safety” is understood across cultures, and how AI systems reason about plural values.</p>
+      </div>
+      <aside class="gloss" aria-label="Key term">
+        <div class="han" lang="zh-Hans">安全</div>
+        <div class="pinyin">ānquán</div>
+        <div class="def">One word for both <em>safety</em> and <em>security</em>. What each side means by it shapes whether AI governance can be shared.</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="research">
+    <div class="wrap">
+      <div class="rail"><h2>Research</h2></div>
+      <div class="body">
+        <div class="strands">
+          <div class="strand">
+            <span class="status live">In progress</span>
+            <h3>AI safety across China and the West</h3>
+            <p>How Chinese companies, standards bodies and public commentators use 安全 in practice, beyond official definitions. The question matters for international coordination: agreements depend on whether both sides mean the same thing by “safety”.</p>
+          </div>
+          <div class="strand">
+            <span class="status live">Pilot</span>
+            <h3>Cultural reasoning in AI evaluation</h3>
+            <p>A “thick reasoning” case bank built from my ethnographic material. Each case pairs a real ethical dilemma with a reference reading of how people actually reasoned about it, to test how Chinese and Western models handle culturally situated moral judgement.</p>
+          </div>
+          <div class="strand">
+            <span class="status">Ongoing</span>
+            <h3>Ethical life in digital China</h3>
+            <p>Five years of fieldwork with grassroots women entrepreneurs in WeChat social commerce and with urban Hui Muslim communities. From this work I developed the concept of multisource ethical reasoning: how people draw on several, sometimes competing, sources of moral authority at once.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="methods">
+    <div class="wrap">
+      <div class="rail"><h2>Methods &amp; tools</h2></div>
+      <div class="body">
+        <p class="sub">Core methods</p>
+        <ul class="skills">
+          <li><strong>Long-term ethnography.</strong> Participant observation and in-depth interviews, including five years of fieldwork in China.</li>
+          <li><strong>Chinese-language source analysis.</strong> Close reading of policy, platform and media texts in Chinese and English.</li>
+          <li><strong>Rubric design for evaluating reasoning.</strong> Case-based rubrics that compare AI responses with how people actually reason in context.</li>
+          <li><strong>Discourse and socio-linguistic analysis.</strong> How moral and technical concepts are framed, justified and contested in talk and text.</li>
+          <li><strong>Quantitative analysis in R.</strong> Probability, statistics and regression.</li>
+        </ul>
+        <p class="sub">Currently building</p>
+        <ul class="skills">
+          <li><strong>Python</strong> for handling and coding AI model transcripts.</li>
+          <li><strong>Model APIs</strong> for running evaluation prompts across Chinese and Western models.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="writing">
+    <div class="wrap">
+      <div class="rail"><h2>Writing</h2></div>
+      <div class="body">
+        <div class="feature">
+          <span class="status">Forthcoming essay</span>
+          <h3>What does <span class="h" lang="zh-Hans">安全</span> mean? Reading “AI safety” in Chinese practice</h3>
+          <p>A short essay on how safety and security are joined in Chinese AI discourse, and what that means for international AI governance.</p>
+        </div>
+
+        <p class="sub">Monograph in preparation</p>
+        <ul class="pubs">
+          <li><span class="yr">—</span><span><span class="t"><strong>Halal Signals: Navigating an Ethical Life in Digital China.</strong></span> Based on my doctoral research; proposal submitted to Stanford University Press.</span></li>
+        </ul>
+
+        <p class="sub">Selected publications</p>
+        <ul class="pubs">
+          <li><span class="yr">2026</span><span><span class="t">“<em>Doing</em> Social E-commerce: Chinese grassroots women and their search for a better life.”</span> In Daniel Miller and Xinyuan Wang (eds), <span class="v">Understanding China through Digital Anthropology</span>. UCL Press.</span></li>
+          <li><span class="yr">2026</span><span><span class="t">“Islam, Ethnicity, and Cuisine in China.”</span> In Darra Goldstein (ed.), <span class="v">Oxford Research Encyclopedia of Food Studies</span>. Oxford University Press.</span></li>
+          <li><span class="yr">2024</span><span><span class="t">“Negotiating between Beliefs and Customs: The Encounters of Han Muslim Converts in China.”</span> With Ma Qiang and Usman Khan. <span class="v">Critical Asian Review</span> 56(3): 425–446.</span></li>
+          <li><span class="yr">2023</span><span><span class="t">“Cohesion and cleavage: an examination of the sense of belonging of Muslim migrants in northwest China.”</span> With Xiaofeng Han. <span class="v">Transactions in Planning and Urban Research</span> 2(4): 416–431.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="talks">
+    <div class="wrap">
+      <div class="rail"><h2>Talks &amp; conferences</h2></div>
+      <div class="body">
+        <ul class="pubs">
+          <li><span class="yr">2026</span><span><span class="kind">Conference paper</span>“Invisible Welfare, Visible Labour: Livelihood, Care, and Aspiration in China’s WeChat E-commerce.” <span class="v">Annual Conference of the Swiss Anthropological Association</span>, University of Fribourg.</span></li>
+          <li><span class="yr">2025</span><span><span class="kind">Invited seminar</span>Muslim ethical life in contemporary China. <span class="v">RG China(s) Colloquium, German Anthropological Association</span>.</span></li>
+          <li><span class="yr">2025</span><span><span class="kind">Workshop</span>“One among the Zeros (0100)”: emergent technologies, ethics and future-making across the Muslim world. <span class="v">Leiden University and NIMAR, Morocco</span>.</span></li>
+          <li><span class="yr">2023</span><span><span class="kind">Conference paper</span>“Beyond Social E-commerce: a comparative study of value(s)-practicing between Han Chinese and Hui Muslims.” <span class="v">Annual Conference of the Association of Social Anthropologists (ASA)</span>.</span></li>
+          <li><span class="yr">2023</span><span><span class="kind">Invited lecture</span>“Awarded in Business and Penalized in Society: a moral practice of social e-commerce among Chinese grassroots females.” <span class="v">SOAS University of London</span>.</span></li>
+          <li><span class="yr">2021</span><span><span class="kind">Conference paper</span>“Digital Infrastructure and Rural Vitalization in China.” <span class="v">7th Internet Anthropological Conference</span>, Sun Yat-sen University.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="teaching">
+    <div class="wrap">
+      <div class="rail"><h2>Teaching &amp; practice</h2></div>
+      <div class="body">
+        <div class="facts">
+          <div>
+            <span class="when">2024–present</span>
+            <h3>Associate Lecturer, UCL</h3>
+            <p>Postgraduate teaching and dissertation supervision. Teaches the Collaborative Enterprise module.</p>
+          </div>
+          <div>
+            <span class="when">2020–2024</span>
+            <h3>PhD in Social Anthropology, UCL</h3>
+            <p>Also MRes in Anthropology (UCL) and MA in Social Anthropology (SOAS).</p>
+          </div>
+          <div>
+            <span class="when">2018–2022</span>
+            <h3>Founder, two China-based ventures</h3>
+            <p>A consultancy training women entrepreneurs in social commerce, and a studio helping businesses build on cultural heritage through social media.</p>
+          </div>
+          <div>
+            <span class="when">2011–2014</span>
+            <h3>Market analyst, then sales director</h3>
+            <p>Changchun Automation Mechanical Manufacturing Co., Ltd.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="rail"><h2>Contact</h2></div>
+      <div class="body">
+        <p>I welcome conversations about AI safety, evaluation and governance research, especially work involving China.</p>
+        <div class="mail">
+          <code id="email-ucl">haichao.wang.18@ucl.ac.uk</code>
+          <button class="copy" id="copy-email-ucl" type="button" data-target="email-ucl">Copy email</button>
+        </div>
+        <div class="mail">
+          <code id="email-alt">haichao_anthro25@foxmail.com</code>
+          <button class="copy" id="copy-email-alt" type="button" data-target="email-alt">Copy email</button>
+        </div>
+        <p class="where">London &amp; Shenzhen · English and Chinese</p>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/haichao-wang-%E7%8E%8B%E6%B5%B7%E6%BD%AE-4b994a171/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=F3IwZVAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://orcid.org/0000-0001-8806-4487" target="_blank" rel="noopener">ORCID</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Haichao Wang</div>
+</footer>
+
+<script>
+(function () {
+  document.querySelectorAll('button.copy').forEach(function (btn) {
+  var el = document.getElementById(btn.dataset.target);
+  btn.addEventListener('click', function () {
+    var text = el.textContent.trim();
+    function selectIt() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected, press Ctrl+C';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy email'; }, 2000);
+      }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+  });
+})();
+</script>
+
+</body>
+</html>
